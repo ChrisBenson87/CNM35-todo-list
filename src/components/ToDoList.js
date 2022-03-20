@@ -1,7 +1,9 @@
+import './components.css';
+
 const ToDoList = ({item, index, deleteHandler}) => {
 
     return(
-        <div>
+        <div className = "list">
         {item}
         <button className = "deleteButton" onClick = {() => deleteHandler(index)}>Delete</button>
         </div>

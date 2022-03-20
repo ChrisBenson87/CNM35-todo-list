@@ -1,3 +1,5 @@
+import './components.css';
+
 const Input = ({inputHandler, addHandler,}) => {
 
     return (
