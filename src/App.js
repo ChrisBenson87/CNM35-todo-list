@@ -1,6 +1,5 @@
 import './App.css';
 import {useState} from 'react';
-import ToDoList from './components/ToDoList'
 import Input from './components/input'
 
 const App = () => {
@@ -20,18 +19,19 @@ const App = () => {
   }
   
   const deleteHandler = (index) => {
-    let storedAddItems = [...addItem]
-    storedAddItems.splice(index, 1)
-    storedAddItems(storedAddItems)
+    let storedDeleteItems = [...addItem]
+    storedDeleteItems.splice(index, 1)
+    setAddItem(storedDeleteItems)
   }
   
   return (
     <div className="App">
       <div><h1>To Do List</h1>
-        <Input inputHandler = {inputHandler} addHandler = {addHandler}/>
-        {addItem.map((item, index) => (
-          <ToDoList key = {index} index = {index} item = {item} deleteHander = {deleteHandler}/>
-        ))}
+      <>
+      <Input addItem = {addItem} deleteHandler = {deleteHandler}/>
+      </>
+        <input className = "inputtab" onChange = {inputHandler} name = "input" type = "text"></input>
+        <button className = "addButton" onClick = {addHandler}>Add</button>
       </div>
     </div>
   );
